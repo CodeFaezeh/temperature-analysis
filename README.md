@@ -12,3 +12,4 @@ Run the script using a JavaScript runtime environment like Node.js or in the bro
 ## License
 
 This project is licensed under the MIT License.
+
