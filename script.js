@@ -1,4 +1,3 @@
-// Remember, we're gonna use strict mode in all scripts now!
 'use strict';
 
 const temperatures = [3, -2, -6, 'eror', 9, 13, 17, 15, 14, 9, 5];
@@ -41,3 +40,5 @@ const negMinMax = findMinMax(negRange);
 const min = negMinMax.min;
 const max = posMinMax.max;
 console.log(min, max);
+const amplitude = calcTempAmplitude(max - min);
+console.log(amplitude);
