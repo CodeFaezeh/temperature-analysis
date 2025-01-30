@@ -1,44 +1,20 @@
-'use strict';
+"use strict";
 
-const temperatures = [3, -2, -6, 'eror', 9, 13, 17, 15, 14, 9, 5];
+const temperatures = [3, -2, -6, "eror", 9, 13, 17, 15, 14, 9, 5];
 
-//psedu code
-const posRange = [];
-const negRange = [];
-
-const range = function (arr) {
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] >= 0) {
-      posRange.push(arr[i]);
-    } else if (arr[i] <= 0) {
-      negRange.push(arr[i]);
-    } else {
-      continue;
+const calcTempAmplitude = function (temps) {
+  let max = temps[0];
+  let min = temps[0];
+  for (let i = 1; i < temps.length; i++) {
+    if (typeof temps[i] !== "number") continue;
+    if (temps[i] > max) {
+      max = temps[i];
+    }
+    if (temps[i] < min) {
+      min = temps[i];
     }
   }
+  console.log({ min, max });
+  return max - min;
 };
-range(temperatures);
-console.log(`Negetive temperatures:${negRange}`);
-console.log(`Positive temperatures:${posRange}`);
-
-const findMinMax = function (arr) {
-  let max = arr[0];
-  let min = arr[0];
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > max) {
-      max = arr[i];
-    }
-    if (min > arr[i]) {
-      min = arr[i];
-    }
-  }
-  return { min, max };
-};
-
-const posMinMax = findMinMax(posRange);
-const negMinMax = findMinMax(negRange);
-const min = negMinMax.min;
-const max = posMinMax.max;
-console.log(min, max);
-const amplitude = calcTempAmplitude(max - min);
-console.log(amplitude);
+console.log(calcTempAmplitude(temperatures));
